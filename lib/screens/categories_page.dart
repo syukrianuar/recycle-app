@@ -27,10 +27,8 @@ class CategoriesPageState extends State<CategoriesPage> {
               )
             ]),
             body: Scaffold(
-              body: TabBarView(children: [
-                RecycleablePage(),
-                NonRecycleablePage()
-              ]),
+              body: TabBarView(
+                  children: [RecycleablePage(), NonRecycleablePage()]),
             )),
       ),
     );
@@ -60,7 +58,85 @@ class RecycleablePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(children: [Column(children: [Container(height: MediaQuery.of(context).size.height,)],),Column()],),
+      body: SingleChildScrollView(
+        child: Row(
+          children: [
+            Column(
+              children: [
+                Container(
+                  width: 90,
+                  height: MediaQuery.of(context).size.height,
+                  decoration:
+                      BoxDecoration(color: Color.fromARGB(255, 192, 192, 192)),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 5,
+                      ),
+                      ImageIcon(
+                        AssetImage("assets/metal.png"),
+                        size: 50,
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text("Metal"),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      ImageIcon(
+                        AssetImage("assets/plastic.png"),
+                        size: 50,
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text("Plastic"),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      ImageIcon(
+                        AssetImage("assets/paper.png"),
+                        size: 50,
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text("Paper"),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      ImageIcon(
+                        AssetImage("assets/fabric.png"),
+                        size: 50,
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text("Fabric"),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      ImageIcon(
+                        AssetImage("assets/glass.png"),
+                        size: 50,
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text("Glass"),
+                      SizedBox(
+                        height: 20,
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            Column()
+          ],
+        ),
+      ),
     );
   }
 }
