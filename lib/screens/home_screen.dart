@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:recycle_app/screens/categories_page.dart';
+import 'package:recycle_app/screens/profile_page.dart';
+import 'package:recycle_app/screens/reward_page.dart';
 import 'package:recycle_app/screens/wallet_page.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -35,13 +37,21 @@ class _MyHomePageState extends State<MyHomePage> {
             BottomQR(),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton.large(
           backgroundColor: Colors.white,
           onPressed: () {},
-          child: Icon(
-            Icons.qr_code,
-            color: Colors.black,
-            size: 35,
+          child: Container(
+            height: 80,
+            width: 80,
+            decoration: BoxDecoration(
+                // color: Colors.red,
+                shape: BoxShape.circle,
+                border: Border.all(width: 2)),
+            child: Icon(
+              Icons.qr_code,
+              color: Colors.black,
+              size: 50,
+            ),
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -112,23 +122,29 @@ class CategoryList extends StatelessWidget {
                 ],
               ),
             ),
-            Column(
-              children: [
-                Container(
-                  height: 80,
-                  width: 80,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(50),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => RewardPage()));
+              },
+              child: Column(
+                children: [
+                  Container(
+                    height: 80,
+                    width: 80,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: Icon(Icons.card_giftcard,
+                        size: 50, color: Colors.lightGreen),
                   ),
-                  child: Icon(Icons.card_giftcard,
-                      size: 50, color: Colors.lightGreen),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Text('Rewards')
-              ],
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text('Rewards')
+                ],
+              ),
             ),
             GestureDetector(
               onTap: () {
@@ -190,22 +206,29 @@ class CategoryList extends StatelessWidget {
                 Text('Partners')
               ],
             ),
-            Column(
-              children: [
-                Container(
-                  height: 80,
-                  width: 80,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(50),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()));
+              },
+              child: Column(
+                children: [
+                  Container(
+                    height: 80,
+                    width: 80,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child:
+                        Icon(Icons.person, size: 50, color: Colors.lightGreen),
                   ),
-                  child: Icon(Icons.person, size: 50, color: Colors.lightGreen),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Text('Profile')
-              ],
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text('Profile')
+                ],
+              ),
             ),
           ]),
     );
@@ -242,17 +265,17 @@ class WelcomeBackUser extends StatelessWidget {
         Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(10.0),
               child: const Text(
                 'Welcome Back',
                 style: TextStyle(fontSize: 30, color: Colors.white),
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 5,
             ),
             CircleAvatar(
-              radius: 35,
+              radius: 40,
             ),
             SizedBox(
               height: 10,
@@ -270,9 +293,11 @@ class WelcomeBackUser extends StatelessWidget {
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(20)),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
@@ -285,15 +310,16 @@ class WelcomeBackUser extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    width: 10,
+                    width: 20,
                   ),
                   VerticalDivider(
                     thickness: 3,
                   ),
                   SizedBox(
-                    width: 10,
+                    width: 30,
                   ),
                   Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(

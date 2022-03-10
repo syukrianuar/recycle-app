@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:recycle_app/screens/home_screen.dart';
 import 'package:recycle_app/screens/wallet_page.dart';
+import 'package:recycle_app/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +29,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(),
+      home: const SplashScreen(),
+      builder: EasyLoading.init(),
     );
   }
 }

@@ -35,26 +35,16 @@ class CategoriesPageState extends State<CategoriesPage> {
   }
 }
 
-class NonRecycleablePage extends StatelessWidget {
+class NonRecycleablePage extends StatefulWidget {
   const NonRecycleablePage({
     Key? key,
   }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text("NR"),
-      ),
-    );
-  }
+  _NonRecycleablePageState createState() => _NonRecycleablePageState();
 }
 
-class RecycleablePage extends StatelessWidget {
-  const RecycleablePage({
-    Key? key,
-  }) : super(key: key);
-
+class _NonRecycleablePageState extends State<NonRecycleablePage> {
+  double _containerHeight = double.infinity;
+  Color _containerColor = Color.fromARGB(255, 192, 192, 192);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,28 +60,151 @@ class RecycleablePage extends StatelessWidget {
                       BoxDecoration(color: Color.fromARGB(255, 192, 192, 192)),
                   child: Column(
                     children: [
-                      SizedBox(
-                        height: 5,
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _containerColor = Colors.white;
+                          });
+                        },
+                        child: Container(
+                          width: 90,
+                          color: _containerColor,
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 15,
+                              ),
+                              ImageIcon(
+                                AssetImage("assets/prohibited.png"),
+                                size: 50,
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text("Prohibited Items"),
+                            ],
+                          ),
+                        ),
                       ),
-                      ImageIcon(
-                        AssetImage("assets/metal.png"),
-                        size: 50,
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _containerColor = Colors.white;
+                          });
+                        },
+                        child: Container(
+                          width: 90,
+                          color: _containerColor,
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 20,
+                              ),
+                              ImageIcon(
+                                AssetImage("assets/danger.png"),
+                                size: 50,
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text("Dangerous Disposal"),
+                            ],
+                          ),
+                        ),
                       ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text("Metal"),
                       SizedBox(
                         height: 20,
                       ),
-                      ImageIcon(
-                        AssetImage("assets/plastic.png"),
-                        size: 50,
+                    ],
+                  ),
+                )
+              ],
+            ),
+            Column()
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class RecycleablePage extends StatefulWidget {
+  const RecycleablePage({
+    Key? key,
+  }) : super(key: key);
+  _RecycleablePageState createState() => _RecycleablePageState();
+}
+
+class _RecycleablePageState extends State<RecycleablePage> {
+  double _containerHeight = double.infinity;
+  Color _containerColor = Color.fromARGB(255, 192, 192, 192);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Row(
+          children: [
+            Column(
+              children: [
+                Container(
+                  width: 90,
+                  height: MediaQuery.of(context).size.height,
+                  decoration:
+                      BoxDecoration(color: Color.fromARGB(255, 192, 192, 192)),
+                  child: Column(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _containerColor = Colors.white;
+                          });
+                        },
+                        child: Container(
+                          width: 90,
+                          color: _containerColor,
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 15,
+                              ),
+                              ImageIcon(
+                                AssetImage("assets/metal.png"),
+                                size: 50,
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text("Metal"),
+                            ],
+                          ),
+                        ),
                       ),
-                      SizedBox(
-                        height: 5,
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _containerColor = Colors.white;
+                          });
+                        },
+                        child: Container(
+                          width: 90,
+                          color: _containerColor,
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 20,
+                              ),
+                              ImageIcon(
+                                AssetImage("assets/plastic.png"),
+                                size: 50,
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text("Plastic"),
+                            ],
+                          ),
+                        ),
                       ),
-                      Text("Plastic"),
                       SizedBox(
                         height: 20,
                       ),
